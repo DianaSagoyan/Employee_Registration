@@ -12,66 +12,66 @@
 </div>
 
 <div class="info">
+    <form action="" th:object="${employee}">
 <div class="row">
     <div class="form-group col-4">
         <label for="first-name">First Name</label>
-        <input class="form-control" type="text" id="first-name" placeholder="Enter first name">
+        <input  th:field="*{firstName}" class="form-control" type="text" id="first-name" placeholder="Enter first name">
     </div>
     <div class="form-group col-4">
         <label for="last-name">Last Name</label>
-        <input class="form-control" type="text" id="last-name" placeholder="Enter last name">
+        <input  th:field="*{lastName}" class="form-control" type="text" id="last-name" placeholder="Enter last name">
     </div>
     <div class="form-group col-4">
         <label for="date">Birthday</label>
-        <input class="form-control" type="date" id="date">
+        <input  th:field="*{birthday}" class="form-control" type="date" id="date">
     </div>
 </div>
     <br>
 <div class="row">
     <div class="form-group col-6">
         <label for="email">Email</label>
-        <input class="form-control" type="email" id="email" placeholder="Email">
+        <input th:field="*{email}" class="form-control" type="email" id="email" placeholder="Email">
     </div>
     <div class="form-group col-6">
         <label for="password">Password</label>
-        <input class="form-control" type="password" id="password" placeholder="Enter last name">
+        <input  th:field="*{password}" class="form-control" type="password" id="password" placeholder="Enter last name">
     </div>
 </div>
     <br>
 <div class="row">
     <div class="form-group col-12">
         <label for="address">Address</label>
-        <input class="form-control" type="text" id="address" placeholder="1234 Main St">
+        <input  th:field="*{streetAddress}" class="form-control" type="text" id="address" placeholder="1234 Main St">
     </div>
 </div>
     <br>
 <div class="row">
     <div class="form-group col-12">
         <label for="address2">Address 2</label>
-        <input class="form-control" type="text" id="address2" placeholder="Apartment, studio or floor">
+        <input  th:field="*{apt}" class="form-control" type="text" id="address2" placeholder="Apartment, studio or floor">
     </div>
 </div>
     <br>
 <div class="row">
     <div class="form-group col-6">
         <label for="city">City</label>
-        <input class="form-control" type="text" id="city">
+        <input  th:field="*{city}" class="form-control" type="text" id="city">
     </div>
     <div class="form-group col-4">
         <label for="state">State</label>
-        <select class="form-control" id="state">
-            <option>Alaska</option>
-            <option>Maryland</option>
-            <option>California</option>
+        <select th:field="${states}" class="form-control" id="state">
+            <option th:each="state : ${states}" th:value="${state}" th:text="${state}"></option>
         </select>
     </div>
     <div class="form-group col-2">
         <label for="zip">Zip</label>
-        <input class="form-control" type="text" id="zip">
+        <input  th:field="*{zip}" class="form-control" type="text" id="zip">
     </div>
 </div>
     <br>
 <button class="btn btn-danger" type="button">Register</button>
+    </form>
 </div>
 
 </body>
