@@ -1,6 +1,8 @@
 package com.cydeo.controller;
 
+import com.cydeo.bootstrap.DataGenerator;
 import com.cydeo.model.Employee;
+import com.cydeo.service.EmployeeService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,18 +15,30 @@ import java.util.List;
 
 @Controller
 public class EmployeeController {
+
+    private final EmployeeService employeeService;
+
+    public EmployeeController(EmployeeService employeeService) {
+        this.employeeService = employeeService;
+    }
+
     @GetMapping("/employee")
     public String employeePage(Model model){
-        List<String> states = Arrays.asList("Alaska", "Maryland", "California");
-        model.addAttribute("states", states);
+        model.addAttribute("states", DataGenerator.getAllStates());
         model.addAttribute("employee", new Employee());
         return "/register";
     }
 
-    @PostMapping("/employee-list")
-    public String employeeist(@ModelAttribute Employee employee){
-        return "redirect:/employee";
+    @PostMapping("/insert")
+    public String employeeList(@ModelAttribute("employee") Employee employee){
+        employeeService.saveEmployee(employee);
+        return "redirect:/list";
     }
 
+    @GetMapping("/list")
+    public String listEmployees(Model model){
+        model.addAttribute("employeeList", employeeService.readAllEmployees());
+        return "/employee-list";
+    }
 
 }

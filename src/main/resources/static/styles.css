@@ -9,6 +9,17 @@
     text-align: center;
 }
 
+.header2{
+    padding: 4% 0;
+    font-size: 50px;
+    text-align: center;
+}
+
+.table{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
 .info{
     padding-top: 20px;
 }

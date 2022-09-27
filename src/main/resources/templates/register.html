@@ -12,7 +12,7 @@
 </div>
 
 <div class="info container d-flex justify-content-center">
-    <form th:action="@{/employee-list}" method="post" th:object="${employee}">
+    <form th:action="@{/insert}" method="post" th:object="${employee}">
 <div class="row">
     <div class="form-group col">
         <label for="first-name">First Name</label>
@@ -70,7 +70,7 @@
     </div>
 </div>
     <br>
-<button class="btn btn-danger" type="button">Register</button>
+<button class="btn btn-danger" type="submit">Register</button>
     </form>
 </div>
 
