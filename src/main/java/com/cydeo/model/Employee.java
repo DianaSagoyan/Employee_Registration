@@ -11,7 +11,7 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Employee {
-    private String firstName, lastName, email, password, streetAddress, apt, city, zip;
+    private String firstName, lastName, email, password, address, address2, city, zip;
     private LocalDate birthday;
-    private List<String> state;
+    private String state;
 }
