@@ -17,7 +17,7 @@
     <tr>
         <th>First Name</th>
         <th>Last Name</th>
-        <th>Age</th>
+<!--        <th>Age</th>-->
         <th>Address</th>
         <th>City</th>
         <th>State</th>
@@ -25,10 +25,15 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-        
+    <tr th:each="theEmployee : ${employeeList}">
+        <td th:text="${theEmployee.firstName}"></td>
+        <td th:text="${theEmployee.lastName}"></td>
+<!--        <td th:text="${#execInfo.getNow().get(1) - theEmployee.birthday.getYear()}"></td>-->
+        <td th:text="${theEmployee.address + ' ' + theEmployee.address2}"></td>
+        <td th:text="${theEmployee.city}"></td>
+        <td th:text="${theEmployee.state}"></td>
+        <td th:text="${theEmployee.zip}"></td>
     </tr>
-    <tr>
     </tbody>
 </table>
 </div>

@@ -12,9 +12,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Employee {
-    private String firstName, lastName, email, password, address, address2, city, zip;
+    private String firstName, lastName, email, password, address, address2, city, zip, state;
     //Thymeleaf accepts yyyy-mm-dd, but localdate mm-dd-yyyy
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private LocalDate birthday;
-    private String state;
 }
