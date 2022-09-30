@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.Arrays;
 import java.util.List;
 
@@ -31,7 +32,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/insert")
-    public String employeeList(@ModelAttribute("employee") Employee employee, BindingResult bindingResult, Model model){
+    public String employeeList(@ModelAttribute("employee") @Valid Employee employee, BindingResult bindingResult, Model model){
 
         if(bindingResult.hasErrors()){
             model.addAttribute("states", DataGenerator.getAllStates());
